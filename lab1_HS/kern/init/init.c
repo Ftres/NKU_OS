@@ -34,7 +34,7 @@ int kern_init(void) {
     intr_enable();  // enable irq interrupt
     
     asm volatile("ebreak"::);  // 触发断点异常
-    asm volatile(".word 0xFFFFFFFF"::);   //触发指令错误异常
+    asm volatile("mret"::);   //触发指令错误异常
 
     while (1)
         ;

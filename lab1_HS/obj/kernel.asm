@@ -7,10 +7,10 @@ Disassembly of section .text:
 0000000080200000 <kern_entry>:
 #include <memlayout.h>
 
-    .section .text,"ax",%progbits
+    .section .text,"ax",%progbits # 用于告诉编译器将下面的代码放入.text段中，这是用于存放代码的段。
     .globl kern_entry
 kern_entry:
-    la sp, bootstacktop
+    la sp, bootstacktop # 将栈指针（sp）设置为bootstacktop的地址
     80200000:	00004117          	auipc	sp,0x4
     80200004:	00010113          	mv	sp,sp
 
@@ -66,9 +66,8 @@ int kern_init(void) {
     
     asm volatile("ebreak"::);  // 触发断点异常
     80200050:	9002                	ebreak
-    80200052:	ffff                	0xffff
-    80200054:	ffff                	0xffff
-    asm volatile(".word 0xFFFFFFFF"::);   //触发指令错误异常
+    asm volatile("mret"::);   //触发指令错误异常
+    80200052:	30200073          	mret
 
     while (1)
         ;
@@ -586,12 +585,12 @@ void interrupt_handler(struct trapframe *tf)
     80200446:	0785                	addi	a5,a5,1
     80200448:	00004697          	auipc	a3,0x4
     8020044c:	bcf6bc23          	sd	a5,-1064(a3) # 80204020 <ticks>
-        if(ticks%TICK_NUM==0)
+        if (ticks % TICK_NUM == 0)
     80200450:	631c                	ld	a5,0(a4)
     80200452:	06400713          	li	a4,100
     80200456:	02e7f7b3          	remu	a5,a5,a4
     8020045a:	cb99                	beqz	a5,80200470 <interrupt_handler+0xa4>
-        if(Num_Of_Print>=10)
+        if (Num_Of_Print >= 10)
     8020045c:	4018                	lw	a4,0(s0)
     8020045e:	47a5                	li	a5,9
     80200460:	02e7c763          	blt	a5,a4,8020048e <interrupt_handler+0xc2>
@@ -623,7 +622,7 @@ void interrupt_handler(struct trapframe *tf)
 }
     8020048e:	6402                	ld	s0,0(sp)
     80200490:	60a2                	ld	ra,8(sp)
-            Num_Of_Print=0;
+            Num_Of_Print = 0;
     80200492:	00004797          	auipc	a5,0x4
     80200496:	b607af23          	sw	zero,-1154(a5) # 80204010 <edata>
 }
