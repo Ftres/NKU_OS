@@ -43,7 +43,7 @@ bool trap_in_kernel(struct trapframe *tf)
 
 void print_trapframe(struct trapframe *tf)
 {
-   //  cprintf("trap.c---print_trapframe\n");
+    //  cprintf("trap.c---print_trapframe\n");
     cprintf("trapframe at %p\n", tf);
     print_regs(&tf->gpr);
     cprintf("  status   0x%08x\n", tf->status);
@@ -119,7 +119,7 @@ void interrupt_handler(struct trapframe *tf)
         // In fact, Call sbi_set_timer will clear STIP, or you can clear it
         // directly.
         // cprintf("Supervisor timer interrupt\n");
-        /* LAB1 EXERCISE2   YOUR CODE : 2112426 */
+        /* LAB1 EXERCISE2   YOUR CODE : 2112426 2110408 */
         /*(1)设置下次时钟中断- clock_set_next_event()
          *(2)计数器（ticks）加一
          *(3)当计数器加到100的时候，我们会输出一个`100ticks`表示我们触发了100次时钟中断，同时打印次数（num）加一
@@ -127,14 +127,14 @@ void interrupt_handler(struct trapframe *tf)
          */
         clock_set_next_event();
         ticks++;
-        if(ticks%TICK_NUM==0)
+        if (ticks % TICK_NUM == 0)
         {
             Num_Of_Print++;
             print_ticks();
         }
-        if(Num_Of_Print>=10)
+        if (Num_Of_Print >= 10)
         {
-            Num_Of_Print=0;
+            Num_Of_Print = 0;
             sbi_shutdown();
         }
         break;
@@ -173,7 +173,7 @@ void exception_handler(struct trapframe *tf)
         break;
     case CAUSE_ILLEGAL_INSTRUCTION:
         // 非法指令异常处理
-        /* LAB1 CHALLENGE3   YOUR CODE : 2112426  */
+        /* LAB1 CHALLENGE3   YOUR CODE : 2112426 2110408  */
         /*(1)输出指令异常类型（ Illegal instruction）
          *(2)输出异常指令地址
          *(3)更新 tf->epc寄存器
@@ -184,7 +184,7 @@ void exception_handler(struct trapframe *tf)
         break;
     case CAUSE_BREAKPOINT:
         // 断点异常处理
-        /* LAB1 CHALLLENGE3   YOUR CODE : 2112426  */
+        /* LAB1 CHALLLENGE3   YOUR CODE : 2112426 2110408  */
         /*(1)输出指令异常类型（ breakpoint）
          *(2)输出异常指令地址
          *(3)更新 tf->epc寄存器
