@@ -590,10 +590,10 @@ void interrupt_handler(struct trapframe *tf)
     80200452:	06400713          	li	a4,100
     80200456:	02e7f7b3          	remu	a5,a5,a4
     8020045a:	cb99                	beqz	a5,80200470 <interrupt_handler+0xa4>
-        if (Num_Of_Print >= 10)
-    8020045c:	4018                	lw	a4,0(s0)
+        if (num >= 10)
+    8020045c:	6018                	ld	a4,0(s0)
     8020045e:	47a5                	li	a5,9
-    80200460:	02e7c763          	blt	a5,a4,8020048e <interrupt_handler+0xc2>
+    80200460:	02e7e763          	bltu	a5,a4,8020048e <interrupt_handler+0xc2>
         break;
     default:
         print_trapframe(tf);
@@ -606,25 +606,25 @@ void interrupt_handler(struct trapframe *tf)
     8020046a:	8082                	ret
         print_trapframe(tf);
     8020046c:	effff06f          	j	8020036a <print_trapframe>
-            Num_Of_Print++;
-    80200470:	401c                	lw	a5,0(s0)
+            num++;
+    80200470:	601c                	ld	a5,0(s0)
     cprintf("%d ticks\n", TICK_NUM);
     80200472:	06400593          	li	a1,100
     80200476:	00001517          	auipc	a0,0x1
     8020047a:	87250513          	addi	a0,a0,-1934 # 80200ce8 <etext+0x266>
-            Num_Of_Print++;
-    8020047e:	2785                	addiw	a5,a5,1
+            num++;
+    8020047e:	0785                	addi	a5,a5,1
     80200480:	00004717          	auipc	a4,0x4
-    80200484:	b8f72823          	sw	a5,-1136(a4) # 80204010 <edata>
+    80200484:	b8f73823          	sd	a5,-1136(a4) # 80204010 <edata>
     cprintf("%d ticks\n", TICK_NUM);
     80200488:	bebff0ef          	jal	ra,80200072 <cprintf>
     8020048c:	bfc1                	j	8020045c <interrupt_handler+0x90>
 }
     8020048e:	6402                	ld	s0,0(sp)
     80200490:	60a2                	ld	ra,8(sp)
-            Num_Of_Print = 0;
+            num = 0;
     80200492:	00004797          	auipc	a5,0x4
-    80200496:	b607af23          	sw	zero,-1154(a5) # 80204010 <edata>
+    80200496:	b607bf23          	sd	zero,-1154(a5) # 80204010 <edata>
 }
     8020049a:	0141                	addi	sp,sp,16
             sbi_shutdown();

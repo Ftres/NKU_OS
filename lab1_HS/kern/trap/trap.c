@@ -89,9 +89,6 @@ void print_regs(struct pushregs *gpr)
     cprintf("  t6       0x%08x\n", gpr->t6);
 }
 
-// 定义打印次数
-int Num_Of_Print = 0;
-
 void interrupt_handler(struct trapframe *tf)
 {
     // cprintf("trap.c---interrupt_handler\n");
@@ -129,12 +126,12 @@ void interrupt_handler(struct trapframe *tf)
         ticks++;
         if (ticks % TICK_NUM == 0)
         {
-            Num_Of_Print++;
+            num++;
             print_ticks();
         }
-        if (Num_Of_Print >= 10)
+        if (num >= 10)
         {
-            Num_Of_Print = 0;
+            num = 0;
             sbi_shutdown();
         }
         break;

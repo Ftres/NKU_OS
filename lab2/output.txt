@@ -1,0 +1,364 @@
+
+OpenSBI v0.4 (Jul  2 2019 11:53:53)
+   ____                    _____ ____ _____
+  / __ \                  / ____|  _ \_   _|
+ | |  | |_ __   ___ _ __ | (___ | |_) || |
+ | |  | | '_ \ / _ \ '_ \ \___ \|  _ < | |
+ | |__| | |_) |  __/ | | |____) | |_) || |_
+  \____/| .__/ \___|_| |_|_____/|____/_____|
+        | |
+        |_|
+
+Platform Name          : QEMU Virt Machine
+Platform HART Features : RV64ACDFIMSU
+Platform Max HARTs     : 8
+Current Hart           : 0
+Firmware Base          : 0x80000000
+Firmware Size          : 112 KB
+Runtime SBI Version    : 0.1
+
+PMP0: 0x0000000080000000-0x000000008001ffff (A)
+PMP1: 0x0000000000000000-0xffffffffffffffff (A,R,W,X)
+(THU.CST) os is loading ...
+Special kernel symbols:
+  entry  0xffffffffc0200036 (virtual)
+  etext  0xffffffffc0201c90 (virtual)
+  edata  0xffffffffc0206010 (virtual)
+  end    0xffffffffc0206470 (virtual)
+Kernel executable memory footprint: 26KB
+memory management: best_fit_pmm_manager
+physcial memory map:
+  memory: 0x0000000007e00000, [0x0000000080200000, 0x0000000087ffffff].
+
+Alloc Pages Start!
+ Need block = 1
+本次分配执行前，内存状态如下：
+遍历: Current Block Size:0
+遍历: Current Block Size:31929
+Now Total nr_free(Free Blocks): 31929
+ Current Block Size:31929
+Find a block: size = 31929
+suitable Page Success!
+本次分配完内存状态如下：
+遍历: Current Block Size:0
+遍历: Current Block Size:31928
+Now Total nr_free(Free Blocks): 31928
+Alloc Pages Over!
+
+
+Alloc Pages Start!
+ Need block = 1
+本次分配执行前，内存状态如下：
+遍历: Current Block Size:0
+遍历: Current Block Size:31928
+Now Total nr_free(Free Blocks): 31928
+ Current Block Size:31928
+Find a block: size = 31928
+suitable Page Success!
+本次分配完内存状态如下：
+遍历: Current Block Size:0
+遍历: Current Block Size:31927
+Now Total nr_free(Free Blocks): 31927
+Alloc Pages Over!
+
+
+Alloc Pages Start!
+ Need block = 1
+本次分配执行前，内存状态如下：
+遍历: Current Block Size:0
+遍历: Current Block Size:31927
+Now Total nr_free(Free Blocks): 31927
+ Current Block Size:31927
+Find a block: size = 31927
+suitable Page Success!
+本次分配完内存状态如下：
+遍历: Current Block Size:0
+遍历: Current Block Size:31926
+Now Total nr_free(Free Blocks): 31926
+Alloc Pages Over!
+
+
+Alloc Pages Start!
+ Need block = 1
+本次分配执行前，内存状态如下：
+遍历: Current Block Size:0
+Now Total nr_free(Free Blocks): 0
+Needed Size > nr_free!
+
+
+Free Pages Start!
+Free Pages Num: 1
+Now Total nr_free(Free Blocks): 1
+Free Pages Over!
+
+Free Pages Start!
+Free Pages Num: 1
+Now Total nr_free(Free Blocks): 2
+Free Pages Over!
+
+Free Pages Start!
+Free Pages Num: 1
+Now Total nr_free(Free Blocks): 3
+Free Pages Over!
+
+Alloc Pages Start!
+ Need block = 1
+本次分配执行前，内存状态如下：
+遍历: Current Block Size:0
+遍历: Current Block Size:1
+遍历: Current Block Size:1
+遍历: Current Block Size:1
+Now Total nr_free(Free Blocks): 3
+ Current Block Size:1
+Find a block: size = 1
+ Current Block Size:1
+ Current Block Size:1
+suitable Page Success!
+本次分配完内存状态如下：
+遍历: Current Block Size:0
+遍历: Current Block Size:1
+遍历: Current Block Size:1
+Now Total nr_free(Free Blocks): 2
+Alloc Pages Over!
+
+
+Alloc Pages Start!
+ Need block = 1
+本次分配执行前，内存状态如下：
+遍历: Current Block Size:0
+遍历: Current Block Size:1
+遍历: Current Block Size:1
+Now Total nr_free(Free Blocks): 2
+ Current Block Size:1
+Find a block: size = 1
+ Current Block Size:1
+suitable Page Success!
+本次分配完内存状态如下：
+遍历: Current Block Size:0
+遍历: Current Block Size:1
+Now Total nr_free(Free Blocks): 1
+Alloc Pages Over!
+
+
+Alloc Pages Start!
+ Need block = 1
+本次分配执行前，内存状态如下：
+遍历: Current Block Size:0
+遍历: Current Block Size:1
+Now Total nr_free(Free Blocks): 1
+ Current Block Size:1
+Find a block: size = 1
+suitable Page Success!
+本次分配完内存状态如下：
+遍历: Current Block Size:0
+Now Total nr_free(Free Blocks): 0
+Alloc Pages Over!
+
+
+Alloc Pages Start!
+ Need block = 1
+本次分配执行前，内存状态如下：
+遍历: Current Block Size:0
+Now Total nr_free(Free Blocks): 0
+Needed Size > nr_free!
+
+
+Free Pages Start!
+Free Pages Num: 1
+Now Total nr_free(Free Blocks): 1
+Free Pages Over!
+
+Alloc Pages Start!
+ Need block = 1
+本次分配执行前，内存状态如下：
+遍历: Current Block Size:0
+遍历: Current Block Size:1
+Now Total nr_free(Free Blocks): 1
+ Current Block Size:1
+Find a block: size = 1
+suitable Page Success!
+本次分配完内存状态如下：
+遍历: Current Block Size:0
+Now Total nr_free(Free Blocks): 0
+Alloc Pages Over!
+
+
+Alloc Pages Start!
+ Need block = 1
+本次分配执行前，内存状态如下：
+遍历: Current Block Size:0
+Now Total nr_free(Free Blocks): 0
+Needed Size > nr_free!
+
+
+Free Pages Start!
+Free Pages Num: 1
+Now Total nr_free(Free Blocks): 31927
+Free Pages Over!
+
+Free Pages Start!
+Free Pages Num: 1
+Now Total nr_free(Free Blocks): 31928
+Free Pages Over!
+
+Free Pages Start!
+Free Pages Num: 1
+Now Total nr_free(Free Blocks): 31929
+Free Pages Over!
+
+
+BASIC_CHECK OVER!
+
+
+
+ Stage 0
+
+
+Alloc Pages Start!
+ Need block = 5
+本次分配执行前，内存状态如下：
+遍历: Current Block Size:0
+遍历: Current Block Size:31929
+Now Total nr_free(Free Blocks): 31929
+ Current Block Size:31929
+Find a block: size = 31929
+suitable Page Success!
+本次分配完内存状态如下：
+遍历: Current Block Size:0
+遍历: Current Block Size:31924
+Now Total nr_free(Free Blocks): 31924
+Alloc Pages Over!
+
+
+
+ Stage 1
+
+
+Alloc Pages Start!
+ Need block = 1
+本次分配执行前，内存状态如下：
+遍历: Current Block Size:0
+Now Total nr_free(Free Blocks): 31924
+page = NULL!
+本次分配完内存状态如下：
+遍历: Current Block Size:0
+Now Total nr_free(Free Blocks): 31924
+Alloc Pages Over!
+
+
+
+ Stage 2
+
+
+Free Pages Start!
+Free Pages Num: 2
+Now Total nr_free(Free Blocks): 2
+Free Pages Over!
+
+Free Pages Start!
+Free Pages Num: 1
+Now Total nr_free(Free Blocks): 3
+Free Pages Over!
+
+Alloc Pages Start!
+ Need block = 4
+本次分配执行前，内存状态如下：
+遍历: Current Block Size:0
+遍历: Current Block Size:2
+遍历: Current Block Size:1
+Now Total nr_free(Free Blocks): 3
+Needed Size > nr_free!
+
+
+Alloc Pages Start!
+ Need block = 1
+本次分配执行前，内存状态如下：
+遍历: Current Block Size:0
+遍历: Current Block Size:2
+遍历: Current Block Size:1
+Now Total nr_free(Free Blocks): 3
+ Current Block Size:2
+Find a block: size = 2
+ Current Block Size:1
+Find a block: size = 1
+suitable Page Success!
+本次分配完内存状态如下：
+遍历: Current Block Size:0
+遍历: Current Block Size:2
+遍历: Current Block Size:1
+Now Total nr_free(Free Blocks): 2
+Alloc Pages Over!
+
+
+Alloc Pages Start!
+ Need block = 2
+本次分配执行前，内存状态如下：
+遍历: Current Block Size:0
+遍历: Current Block Size:2
+遍历: Current Block Size:1
+Now Total nr_free(Free Blocks): 2
+ Current Block Size:2
+Find a block: size = 2
+ Current Block Size:1
+suitable Page Success!
+本次分配完内存状态如下：
+遍历: Current Block Size:0
+遍历: Current Block Size:1
+Now Total nr_free(Free Blocks): 0
+Alloc Pages Over!
+
+
+
+ Stage 3
+
+
+Free Pages Start!
+Free Pages Num: 5
+Now Total nr_free(Free Blocks): 5
+Free Pages Over!
+
+Alloc Pages Start!
+ Need block = 5
+本次分配执行前，内存状态如下：
+遍历: Current Block Size:0
+遍历: Current Block Size:5
+遍历: Current Block Size:1
+Now Total nr_free(Free Blocks): 5
+ Current Block Size:5
+Find a block: size = 5
+ Current Block Size:1
+suitable Page Success!
+本次分配完内存状态如下：
+遍历: Current Block Size:0
+遍历: Current Block Size:1
+Now Total nr_free(Free Blocks): 0
+Alloc Pages Over!
+
+
+Alloc Pages Start!
+ Need block = 1
+本次分配执行前，内存状态如下：
+遍历: Current Block Size:0
+遍历: Current Block Size:1
+Now Total nr_free(Free Blocks): 0
+Needed Size > nr_free!
+
+
+
+ Stage 4
+
+
+Free Pages Start!
+Free Pages Num: 5
+Now Total nr_free(Free Blocks): 31929
+Free Pages Over!
+
+
+ Stage 5
+
+check_alloc_page() succeeded!
+satp virtual address: 0xffffffffc0205000
+satp physical address: 0x0000000080205000
+++ setup timer interrupts
+QEMU: Terminated
+
