@@ -1,7 +1,7 @@
 #include <pmm.h>
 #include <list.h>
 #include <string.h>
-#include <buddy_system_pmm.h>
+#include <buddy_system_pmm_wzh.h>
 #include <stdio.h>
 // 初始化一个页首，方便计算offset,init的时候赋值
 struct Page *pageshead = NULL;
@@ -374,8 +374,8 @@ buddy_check(void)
     cprintf("CHECK DONE!\n");
 }
 // 这个结构体在
-const struct pmm_manager buddy_pmm_manager = {
-    .name = "buddy_pmm_manager",
+const struct pmm_manager buddy_pmm_manager_wzh = {
+    .name = "buddy_pmm_manager_wzh",
     .init = buddy_init,
     .init_memmap = buddy_init_memmap,
     .alloc_pages = buddy_alloc_pages,
