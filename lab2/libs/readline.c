@@ -22,29 +22,38 @@ static char buf[BUFSIZE];
  * thus it should be copied before it is used.
  * */
 char *
-readline(const char *prompt) {
-    if (prompt != NULL) {
+readline(const char *prompt)
+{
+    if (prompt != NULL)
+    {
         cprintf("%s", prompt);
     }
     int i = 0, c;
-    while (1) {
-        c = getchar();
-        if (c < 0) {
+    while (1)
+    {
+        // 修了下bug，加了个while，在我电脑上有用。防止无线输出K>,没用可以删掉
+        while ((c = getchar()) < 0)
+            ;
+        // c = getchar();
+        if (c < 0)
+        {
             return NULL;
         }
-        else if (c >= ' ' && i < BUFSIZE - 1) {
+        else if (c >= ' ' && i < BUFSIZE - 1)
+        {
             cputchar(c);
-            buf[i ++] = c;
+            buf[i++] = c;
         }
-        else if (c == '\b' && i > 0) {
+        else if (c == '\b' && i > 0)
+        {
             cputchar(c);
-            i --;
+            i--;
         }
-        else if (c == '\n' || c == '\r') {
+        else if (c == '\n' || c == '\r')
+        {
             cputchar(c);
             buf[i] = '\0';
             return buf;
         }
     }
 }
-
