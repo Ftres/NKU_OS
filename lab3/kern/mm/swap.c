@@ -40,8 +40,8 @@ swap_init(void)
         panic("bad max_swap_offset %08x.\n", max_swap_offset);
      }
 
-     sm = &swap_manager_lru;
-     // sm = &swap_manager_clock;
+     // sm = &swap_manager_lru;
+     sm = &swap_manager_clock;
      // sm = &swap_manager_fifo; //use first in first out Page Replacement Algorithm
      int r = sm->init();
      

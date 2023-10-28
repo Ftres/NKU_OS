@@ -56,7 +56,7 @@ _lru_map_swappable(struct mm_struct *mm, uintptr_t addr, struct Page *page, int 
     list_entry_t *entry = &(page->pra_page_link);
     assert(entry != NULL && curr_ptr != NULL);
     // record the page access situlation
-    /*LAB3 EXERCISE 4: YOUR CODE*/
+    /*LAB3 EXERCISE 4: YOUR CODE 2112426 2113635 2110408*/ 
     // link the most recent arrival page at the back of the pra_list_head qeueue.
     list_entry_t *head = (list_entry_t *)mm->sm_priv;
     list_add(head, entry); // 将页面page插入到页面链表pra_list_head的末尾
