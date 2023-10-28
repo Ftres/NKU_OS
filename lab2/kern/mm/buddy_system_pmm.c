@@ -338,11 +338,11 @@ buddy_check(void) {
 
 
 const struct pmm_manager buddy_pmm_manager = {
-    .name = "buddy_pmm_manager",          // 管理器的名称
-    .init = buddy_init,                   // 初始化管理器
-    .init_memmap = buddy_init_memmap,     // 设置可管理的内存,初始化可分配的物理内存空间
-    .alloc_pages = buddy_alloc_pages,     // 分配>=N个连续物理页,返回分配块首地址指针
-    .free_pages = buddy_free_pages,       // 释放包括自Base基址在内的，起始的>=N个连续物理内存页
-    .nr_free_pages = buddy_nr_free_pages, // 返回全局的空闲物理页数量
-    .check = buddy_check,                 // 举例检测这个pmm_manager的正确性
+    .name = "buddy_pmm_manager",         
+    .init = buddy_init,                   
+    .init_memmap = buddy_init_memmap,     
+    .alloc_pages = buddy_alloc_pages,     
+    .free_pages = buddy_free_pages,      
+    .nr_free_pages = buddy_nr_free_pages, 
+    .check = buddy_check,                 
 };
