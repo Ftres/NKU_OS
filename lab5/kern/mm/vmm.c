@@ -224,7 +224,7 @@ int dup_mmap(struct mm_struct *to, struct mm_struct *from)
             return -E_NO_MEM;
         }
 
-        insert_vma_struct(to, nvma);
+        insert_vma_struct(to, nvma); //将vma添加到mm中
 
         // 复制对应vma的内容
         bool share = 0;

@@ -378,25 +378,29 @@ copy_mm(uint32_t clone_flags, struct proc_struct *proc)
     {
         return 0;
     }
+
+    // 共享current的mm
     if (clone_flags & CLONE_VM)
     {
         mm = oldmm;
         goto good_mm;
     }
+
+    //复制current的mm
     int ret = -E_NO_MEM;
-    if ((mm = mm_create()) == NULL)
+    if ((mm = mm_create()) == NULL) //创建mm_struct
     {
         goto bad_mm;
     }
-    if (setup_pgdir(mm) != 0)
+    if (setup_pgdir(mm) != 0) // alloc one page as PDT
     {
         goto bad_pgdir_cleanup_mm;
     }
-    lock_mm(oldmm);
+    lock_mm(oldmm); //上锁
     {
-        ret = dup_mmap(mm, oldmm);
+        ret = dup_mmap(mm, oldmm); //复制mm
     }
-    unlock_mm(oldmm);
+    unlock_mm(oldmm); //解锁
 
     if (ret != 0)
     {

@@ -397,21 +397,25 @@ int copy_range(pde_t *to, pde_t *from, uintptr_t start, uintptr_t end, bool shar
             start = ROUNDDOWN(start + PTSIZE, PTSIZE);
             continue;
         }
+
         // call get_pte to find process B's pte according to the addr start. If
         // pte is NULL, just alloc a PT
-        if (*ptep & PTE_V)
+        if (*ptep & PTE_V) //PTE Valid
         {
             if ((nptep = get_pte(to, start, 1)) == NULL)
             {
                 return -E_NO_MEM;
             }
-            uint32_t perm = (*ptep & PTE_USER);
+            uint32_t perm = (*ptep & PTE_USER); //从源进程页表项中提取权限标志，用于在后续的page_insert调用中设置目标进程的页表项
+            
             // get page from ptep
             struct Page *page = pte2page(*ptep);
+            
             // alloc a page for process B
             struct Page *npage = alloc_page();
             assert(page != NULL);
             assert(npage != NULL);
+            
             int ret = 0;
             /* LAB5:EXERCISE2 YOUR CODE
              * replicate content of page to npage, build the map of phy addr of
@@ -432,8 +436,8 @@ int copy_range(pde_t *to, pde_t *from, uintptr_t start, uintptr_t end, bool shar
              * (4) build the map of phy addr of npage with the linear addr start
              */
 
-            void *src_kvaddr = page2kva(page);  // Get the kernel virtual address of the source page.
-            void *dst_kvaddr = page2kva(npage); // Get the kernel virtual address of the destination page.
+            void *src_kvaddr = page2kva(page);  // 获取源页的内核虚拟地址
+            void *dst_kvaddr = page2kva(npage); // 获取目标页的内核虚拟地址
 
             memcpy(dst_kvaddr, src_kvaddr, PGSIZE); // Copy the content of the source page to the destination page.
 
