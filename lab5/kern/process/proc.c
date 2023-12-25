@@ -1009,10 +1009,12 @@ static int
 kernel_execve(const char *name, unsigned char *binary, size_t size)
 {
     int64_t ret = 0, len = strlen(name);
-    //   ret = do_execve(name, len, binary, size);
+    
     // 直接调用 do_execve() 无法完成上下文切换
     // 需要借助内联汇编 ebreak 指令触发中断来完成上下文切换
     // 通过设置 a7 寄存器的值为 10 说明这不是一个普通的断点中断，而是要转发到syscall()
+
+    //   ret = do_execve(name, len, binary, size);
     asm volatile(
         "li a0, %1\n"
         "lw a1, %2\n"
